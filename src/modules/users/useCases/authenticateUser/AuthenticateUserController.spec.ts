@@ -1,11 +1,10 @@
-import { User } from "modules/users/entities/User";
 import request from "supertest";
 import { Connection } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 import { hash } from "bcryptjs";
 
-import createConnection from "../../../../database";
-import { app } from "../../../../app";
+import createConnection from "@database/index";
+import { app } from "@src/app";
 
 let connection: Connection;
 
