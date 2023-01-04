@@ -8,7 +8,7 @@ let connection: Connection;
 
 describe("Create User Controller", () => {
   beforeAll(async () => {
-    connection = await createConnection("localhost");
+    connection = await createConnection();
 
     await connection.runMigrations();
   });

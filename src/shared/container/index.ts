@@ -1,4 +1,4 @@
-import { container } from "tsyringe";
+import { container, delay } from "tsyringe";
 
 import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
 import { UsersRepository } from "@modules/users/repositories/UsersRepository";
