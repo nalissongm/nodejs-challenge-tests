@@ -1,7 +1,9 @@
+import { Transfer } from "@modules/statements/entities/Transfer";
 import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToMany,
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
@@ -25,6 +27,9 @@ export class User {
 
   @OneToMany(() => Statement, (statement) => statement.user)
   statement: Statement[];
+
+  @ManyToMany(() => Transfer, (transfer) => transfer.user)
+  transfer: Transfer[];
 
   @CreateDateColumn()
   created_at: Date;

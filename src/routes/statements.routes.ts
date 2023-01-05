@@ -1,3 +1,4 @@
+import { CreateTransferController } from "@modules/statements/useCases/createTransfer/CreateTransferController";
 import { Router } from "express";
 
 import { CreateStatementController } from "../modules/statements/useCases/createStatement/CreateStatementController";
@@ -9,6 +10,7 @@ const statementRouter = Router();
 const getBalanceController = new GetBalanceController();
 const createStatementController = new CreateStatementController();
 const getStatementOperationController = new GetStatementOperationController();
+const createTransferController = new CreateTransferController();
 
 statementRouter.use(ensureAuthenticated);
 
@@ -16,6 +18,6 @@ statementRouter.get("/balance", getBalanceController.handle);
 statementRouter.post("/deposit", createStatementController.handle);
 statementRouter.post("/withdraw", createStatementController.handle);
 statementRouter.get("/:statement_id", getStatementOperationController.handle);
-// statementRouter.post("/transfers/:user_id", createTransferController.handle);
+statementRouter.post("/transfers/:user_id", createTransferController.handle);
 
 export { statementRouter };

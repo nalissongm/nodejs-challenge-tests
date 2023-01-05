@@ -41,9 +41,7 @@ export class StatementsRepository implements IStatementsRepository {
   async getUserBalance({
     user_id,
     with_statement = false,
-  }: IGetBalanceDTO): Promise<
-    { balance: number } | { balance: number; statement: Statement[] }
-  > {
+  }: IGetBalanceDTO): Promise<{ balance: number; statement: Statement[] }> {
     const statement = await this.repository.find({
       where: { user_id },
     });
@@ -56,13 +54,9 @@ export class StatementsRepository implements IStatementsRepository {
       }
     }, 0);
 
-    if (with_statement) {
-      return {
-        statement,
-        balance,
-      };
-    }
-
-    return { balance };
+    return {
+      statement,
+      balance,
+    };
   }
 }
